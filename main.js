@@ -18,21 +18,21 @@ function initMap() {
 	const apiKey = 'AIzaSyBty_Ly3P5yJTnroKVUU7QHiocHKmbsonA';
 	const infoWindow = new google.maps.InfoWindow();
 	map.data.addListener('click', (event) => {
-    const trainNumber = event.feature.getProperty('trainNumber');
+  const trainNumber = event.feature.getProperty('trainNumber');
 	//const trainType = event.feature.getProperty('trainType');
 	//const trainCategory = event.feature.getProperty('trainCategory');
-    const departureDate = event.feature.getProperty('departureDate');
-    const speed = event.feature.getProperty('speed');
-    const position = event.feature.getGeometry().get();
-    const content = `
+  const departureDate = event.feature.getProperty('departureDate');
+  const speed = event.feature.getProperty('speed');
+  const position = event.feature.getGeometry().get();
+  const content = `
       <h2><b>Train </b> ${trainNumber}</h2><p><b>Departure date:</b> ${departureDate}</p>
       <p><b>Speed:</b> ${speed} km/h<br/>
     `;
 
 
 	infoWindow.setContent(content);
-    infoWindow.setPosition(position);
-    infoWindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
-    infoWindow.open(map);
+  infoWindow.setPosition(position);
+  infoWindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
+  infoWindow.open(map);
   });
 }
